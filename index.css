@@ -1,0 +1,113 @@
+/* import roboto font from google fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+/* reset browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* sizes of the container */
+.container {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* sizes of the timeline */
+.timeline {
+    max-width: 800px;
+    width: 60%;
+    height: auto;
+    margin: 20px auto;
+    position: relative;
+}
+
+/* reset ul styles */
+.timeline ul {
+    list-style: none;
+}
+
+/* styling each li item in timeline */
+.timeline ul li {
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 10px;
+    background-color: #ccc;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+/* reset last child margin bottom */
+.timeline ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* styling timeline content h2 */
+.timeline-content h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 0;
+    padding: 10px 0;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* make media query for laptops */
+@media (min-width: 768px) {
+    /* create the line center */
+    .timeline::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background-color: #ccc;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* floating the timeline */
+    .timeline ul li{
+        width: 50%;
+        margin-bottom: 100px;
+        position: relative;
+    }
+    /* place odd li in left and even li in right */
+    .timeline ul li:nth-child(odd) {
+        float: left;
+        clear: right;
+        transform: translateX(-30px);
+    }
+
+    .timeline ul li:nth-child(even) {
+        float: right;
+        clear: both;
+        transform: translateX(30px);
+    }
+    /* create a circle in each li */
+    .timeline ul li:before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #ccc;
+        top: 0;
+    }
+    .timeline ul li:nth-child(odd)::before {
+        transform: translate(50%, -50%);
+        right: -30px;
+    }
+    .timeline ul li:nth-child(even)::before {
+        transform: translate(-50%, -50%);
+        left: -30px;
+    }
+}
