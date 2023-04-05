@@ -58,6 +58,13 @@ fetch(url)
             const infoDiv = document.createElement('div');
             infoDiv.classList.add('flex', 'justify-between', 'items-center');
 
+            const dateSpan = document.createElement('span');
+            dateSpan.classList.add('cd-timeline__date');
+            dateSpan.textContent = "Año 2020";
+
+            // Append the date span to the info container div
+            infoDiv.appendChild(dateSpan);
+
             // Append the info paragraph to the info container div
             infoDiv.appendChild(infoPara);
 
